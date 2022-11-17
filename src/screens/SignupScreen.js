@@ -33,6 +33,9 @@ const SignupScreen = ({ navigation }) => {
           autoCorrect={false}
         />
       </Spacer>
+      {state.errorMessage ? (
+        <Text style={styles.errorMessage}> {state.errorMessage}</Text>
+      ) : null}
       <Spacer>
         <Button title='Sign Up' onPress={() => signup({ email, password })} />
       </Spacer>
@@ -52,5 +55,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     marginBottom: 225,
+  },
+  errorMessage: {
+    fontSize: 16,
+    color: 'red',
+    marginLeft: 15,
   },
 });
