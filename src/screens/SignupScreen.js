@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Context as AuthContext } from '../context/AuthContext';
 import { NavigationEvents } from 'react-navigation';
@@ -6,12 +6,7 @@ import AuthForm from '../components/AuthForm';
 import NavLink from '../components/NavLink';
 
 const SignupScreen = () => {
-  const { state, signup, clearErrorMessage, tryLocalSignin } =
-    useContext(AuthContext);
-
-  useEffect(() => {
-    tryLocalSignin();
-  }, []);
+  const { state, signup, clearErrorMessage } = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
@@ -20,7 +15,7 @@ const SignupScreen = () => {
         headerText='Sign up for Tracker'
         errorMessage={state.errorMessage}
         submitButtonText='Sign Up'
-        onSubmit={({ email, password }) => signup({ email, password })} //=== onSubmit={signup} as we got same key and value name
+        onSubmit={signup} //=== onSubmit={signup} as we got same key and value name
       />
       <NavLink
         text='Already have an account? Sign in instead!'
@@ -35,6 +30,7 @@ SignupScreen.navigationOptions = () => {
     headerShown: null,
   };
 };
+
 export default SignupScreen;
 
 const styles = StyleSheet.create({
