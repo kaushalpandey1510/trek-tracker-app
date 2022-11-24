@@ -58,7 +58,6 @@ const signin =
       const response = await trackerApi.post('/signin', { email, password });
       await AsyncStorage.setItem('token', response.data.token);
       dispatch({ type: 'signin', payload: response.data.token });
-
       navigate('TrackList');
     } catch (err) {
       dispatch({
@@ -70,15 +69,10 @@ const signin =
 
 //user Sign out
 const signout = (dispatch) => async () => {
-  try {
-    await AsyncStorage.removeItem('token');
-    dispatch({ type: 'signout' });
-
-    navigate('Signup');
-    console.log('You have signed out');
-  } catch (err) {
-    console.log(err);
-  }
+  await AsyncStorage.removeItem('token');
+  dispatch({ type: 'signout' });
+  navigate('loginFlow');
+  console.log('You have signed out');
 };
 
 export const { Provider, Context } = createDataContext(

@@ -5,7 +5,7 @@ import { NavigationEvents } from 'react-navigation';
 import AuthForm from '../components/AuthForm';
 import NavLink from '../components/NavLink';
 
-const SignupScreen = () => {
+const SignupScreen = ({ navigation }) => {
   const { state, signup, clearErrorMessage } = useContext(AuthContext);
 
   return (
