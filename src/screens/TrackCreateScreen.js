@@ -1,14 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, View, SafeAreaView } from 'react-native';
+import { Text } from '@rneui/themed';
+import React from 'react';
+import Map from '../components/Map';
 
 const TrackCreateScreen = () => {
   return (
-    <View>
-      <Text>TrackCreateScreen</Text>
-    </View>
-  )
-}
+    <SafeAreaView>
+      <Text h2>Create a Track</Text>
+      <Map />
+    </SafeAreaView>
+  );
+};
 
-export default TrackCreateScreen
+export default TrackCreateScreen;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
