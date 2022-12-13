@@ -21,14 +21,21 @@ const switchNavigator = createSwitchNavigator({
     Signup: SignupScreen,
     Signin: SigninScreen,
   }),
-  mainFlow: createMaterialBottomTabNavigator({
-    trackListFlow: createStackNavigator({
-      TrackList: TrackListScreen,
-      TrackDetail: TrackDetailScreen,
-    }),
-    TrackCreate: TrackCreateScreen,
-    Account: AccountScreen,
-  }),
+  mainFlow: createMaterialBottomTabNavigator(
+    {
+      trackListFlow: createStackNavigator({
+        TrackList: TrackListScreen,
+        TrackDetail: TrackDetailScreen,
+      }),
+      TrackCreate: TrackCreateScreen,
+      Account: AccountScreen,
+    },
+    {
+      activeColor: '#0000FF',
+      inactiveColor: '#808080',
+      barStyle: { backgroundColor: '#ffffff' },
+    }
+  ),
 });
 
 const App = createAppContainer(switchNavigator);
