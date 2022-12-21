@@ -1,7 +1,12 @@
+import '../_mockLocation';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
 import { Text } from '@rneui/themed';
-import { requestForegroundPermissionsAsync } from 'expo-location';
+import {
+  requestForegroundPermissionsAsync,
+  watchPositionAsync,
+  Accuracy,
+} from 'expo-location';
 import Map from '../components/Map';
 
 const TrackCreateScreen = () => {
@@ -13,6 +18,16 @@ const TrackCreateScreen = () => {
       if (!granted) {
         throw new Error('Location permission denied!');
       }
+      await watchPositionAsync(
+        {
+          accuracy: Accuracy.BestForNavigation,
+          timeInterval: 1000,
+          distance: 10,
+        },
+        (location) => {
+          console.log(location);
+        }
+      );
     } catch (e) {
       setErr(e);
     }
