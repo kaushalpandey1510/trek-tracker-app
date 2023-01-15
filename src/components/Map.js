@@ -17,21 +17,6 @@ const Map = () => {
     latitude: 43.41498076919784,
   };
 
-  // let points = [];
-  // for (let i = 0; i < 20; i++) {
-  //   if (i % 2 === 0) {
-  //     points.push({
-  //       latitude: 37.33233 + i * 0.001,
-  //       longitude: -80.52332002677072 + i * 0.001,
-  //     });
-  //   } else {
-  //     points.push({
-  //       latitude: 37.33233 - i * 0.002,
-  //       longitude: -122.03121 + i * 0.001,
-  //     });
-  //   }
-  // }
-
   return (
     <MapView
       style={styles.map}
